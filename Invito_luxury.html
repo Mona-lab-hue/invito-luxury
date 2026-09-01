@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invito Luxury Wedding</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at top, #fffdf9 0%, #f7eee7 45%, #eadbd2 100%);
+  color:#5a463e;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px 20px;
+  position:relative;
+}
+
+.sparkle{
+  position:absolute;
+  font-size:22px;
+  animation:float 4s ease-in-out infinite;
+  opacity:.7;
+}
+
+.s1{top:12%;left:12%;}
+.s2{top:18%;right:14%;animation-delay:1s;}
+.s3{bottom:16%;left:17%;animation-delay:2s;}
+.s4{bottom:12%;right:13%;animation-delay:3s;}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-12px) rotate(12deg);}
+}
+
+.card{
+  width:min(390px,94vw);
+  padding:42px 24px 34px;
+  border-radius:32px;
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:
+    0 25px 70px rgba(120,80,65,.18),
+    inset 0 0 30px rgba(255,255,255,.7);
+}
+
+.monogram{
+  width:90px;
+  height:90px;
+  border:1px solid #b89a85;
+  border-radius:50%;
+  margin:0 auto 22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  letter-spacing:-5px;
+  color:#8d6d5c;
+  position:relative;
+}
+
+.monogram::after{
+  content:"♥";
+  position:absolute;
+  bottom:-9px;
+  background:#f8f0ea;
+  padding:0 7px;
+  font-size:16px;
+  color:#b88979;
+  letter-spacing:0;
+}
+
+.small{
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  color:#a58c7d;
+}
+
+h1{
+  margin:16px 0 6px;
+  font-size:43px;
+  font-weight:400;
+  font-style:italic;
+  color:#604b42;
+}
+
+.amp{
+  font-size:25px;
+  color:#ba9c89;
+}
+
+.date{
+  margin-top:22px;
+  font-size:18px;
+  letter-spacing:3px;
+}
+
+.location{
+  font-size:14px;
+  margin-top:8px;
+  color:#8b756a;
+}
+
+.open-btn{
+  margin-top:32px;
+  border:0;
+  padding:15px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#a9816d,#d4b39f);
+  color:white;
+  letter-spacing:2px;
+  font-size:13px;
+  box-shadow:0 10px 30px rgba(123,84,66,.22);
+}
+
+.invitation{
+  display:none;
+  animation:reveal 1s ease forwards;
+}
+
+@keyframes reveal{
+  from{
+    opacity:0;
+    transform:translateY(25px) scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.intro{
+  padding:80px 22px 50px;
+}
+
+.intro .heart{
+  font-size:28px;
+  color:#c79f91;
+}
+
+.intro h2{
+  font-size:34px;
+  font-weight:400;
+  font-style:italic;
+  margin:15px 0;
+}
+
+.intro p{
+  max-width:550px;
+  margin:0 auto;
+  line-height:1.8;
+  font-size:17px;
+}
+
+.details{
+  padding:20px 20px 80px;
+}
+
+.detail-card{
+  max-width:420px;
+  margin:18px auto;
+  padding:30px 20px;
+  background:rgba(255,255,255,.65);
+  border-radius:26px;
+  box-shadow:0 15px 35px rgba(120,80,65,.10);
+}
+
+.icon{
+  font-size:30px;
+}
+
+.detail-card h3{
+  margin:10px 0 8px;
+  font-size:23px;
+  font-weight:400;
+}
+
+.detail-card p{
+  margin:5px 0;
+  line-height:1.6;
+}
+
+.action{
+  display:inline-block;
+  margin-top:14px;
+  padding:11px 19px;
+  border-radius:999px;
+  text-decoration:none;
+  color:#75594c;
+  border:1px solid #c9aa98;
+  font-size:13px;
+}
+
+.countdown{
+  padding:65px 20px;
+  background:#6e574d;
+  color:#fff8f3;
+}
+
+.countdown h2{
+  font-weight:400;
+  font-style:italic;
+  font-size:30px;
+}
+
+.timer{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:25px;
+}
+
+.time-box{
+  width:70px;
+  padding:15px 5px;
+  background:rgba(255,255,255,.1);
+  border-radius:18px;
+}
+
+.time-box strong{
+  display:block;
+  font-size:25px;
+}
+
+.time-box span{
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.rsvp{
+  padding:80px 20px;
+}
+
+.rsvp h2{
+  font-size:34px;
+  font-weight:400;
+  font-style:italic;
+}
+
+.rsvp-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:16px 30px;
+  border-radius:999px;
+  color:white;
+  text-decoration:none;
+  background:linear-gradient(135deg,#997464,#c8a38f);
+}
+
+footer{
+  padding:40px 20px 55px;
+  font-size:13px;
+  color:#9b8174;
+}
+
+.petals{
+  font-size:30px;
+  letter-spacing:8px;
+  opacity:.65;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="sparkle s1">✦</div>
+<div class="sparkle s2">✧</div>
+<div class="sparkle s3">✦</div>
+<div class="sparkle s4">✧</div>
+
+<div class="card">
+
+<div class="small">Wedding Invitation</div>
+
+<div class="monogram">
+G M
+</div>
+
+<h1>Giulia</h1>
+<div class="amp">&</div>
+<h1>Marco</h1>
+
+<div class="date">23 • 07 • 2027</div>
+<div class="location">Caserta, Italia</div>
+
+<button class="open-btn" onclick="openInvitation()">
+APRI L'INVITO ♥
+</button>
+
+</div>
+</section>
+
+<div class="invitation" id="invitation">
+
+<section class="intro">
+
+<div class="petals">❀ ✦ ❀</div>
+
+<div class="heart">♥</div>
+
+<h2>Ci sposiamo</h2>
+
+<p>
+Con immensa gioia vi invitiamo a condividere
+con noi uno dei giorni più belli della nostra vita.
+La vostra presenza renderà questo momento
+ancora più speciale.
+</p>
+
+</section>
+
+<section class="details">
+
+<div class="detail-card">
+<div class="icon">💍</div>
+<h3>La Cerimonia</h3>
+<p><strong>23 Luglio 2027 • ore 16:30</strong></p>
+<p>Chiesa di Santa Maria</p>
+<a class="action" href="#">
+APRI LA MAPPA
+</a>
+</div>
+
+<div class="detail-card">
+<div class="icon">🥂</div>
+<h3>Il Ricevimento</h3>
+<p><strong>Dalle ore 18:30</strong></p>
+<p>Villa dei Sogni</p>
+<a class="action" href="#">
+INDICAZIONI
+</a>
+</div>
+
+</section>
+
+<section class="countdown">
+
+<h2>Manca poco al nostro sì…</h2>
+
+<div class="timer">
+
+<div class="time-box">
+<strong id="days">0</strong>
+<span>GIORNI</span>
+</div>
+
+<div class="time-box">
+<strong id="hours">0</strong>
+<span>ORE</span>
+</div>
+
+<div class="time-box">
+<strong id="minutes">0</strong>
+<span>MIN</span>
+</div>
+
+<div class="time-box">
+<strong id="seconds">0</strong>
+<span>SEC</span>
+</div>
+
+</div>
+</section>
+
+<section class="rsvp">
+
+<div class="petals">❀ ♥ ❀</div>
+
+<h2>Ci sarete?</h2>
+
+<p>
+Confermate la vostra presenza entro il<br>
+20 giugno 2027.
+</p>
+
+<a class="rsvp-btn"
+href="mailto:inviti@example.com?subject=Conferma%20presenza%20matrimonio">
+CONFERMA PRESENZA
+</a>
+
+</section>
+
+<footer>
+
+<div>Giulia ♥ Marco</div>
+<br>
+23 • 07 • 2027
+<br><br>
+<span>Con amore, vi aspettiamo.</span>
+
+</footer>
+
+</div>
+
+<script>
+
+function openInvitation(){
+
+  document.getElementById("invitation").style.display="block";
+
+  setTimeout(function(){
+    document.getElementById("invitation").scrollIntoView({
+      behavior:"smooth"
+    });
+  },200);
+
+}
+
+const weddingDate =
+new Date("July 23, 2027 16:30:00").getTime();
+
+setInterval(function(){
+
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  if(distance < 0){
+    return;
+  }
+
+  const days =
+  Math.floor(distance/(1000*60*60*24));
+
+  const hours =
+  Math.floor(
+  (distance%(1000*60*60*24))/(1000*60*60)
+  );
+
+  const minutes =
+  Math.floor(
+  (distance%(1000*60*60))/(1000*60)
+  );
+
+  const seconds =
+  Math.floor(
+  (distance%(1000*60))/1000
+  );
+
+  document.getElementById("days").innerHTML=days;
+  document.getElementById("hours").innerHTML=hours;
+  document.getElementById("minutes").innerHTML=minutes;
+  document.getElementById("seconds").innerHTML=seconds;
+
+},1000);
+
+</script>
+
+</body>
+</html>
